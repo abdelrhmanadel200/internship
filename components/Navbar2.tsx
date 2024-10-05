@@ -23,10 +23,10 @@ const pageVariants = {
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement | null>(null); // Type the ref
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const handleOutsideClick = (event: MouseEvent) => { // Use MouseEvent
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) { // Type assertion
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
@@ -44,54 +44,50 @@ const NavBar = () => {
 
   return (
     <motion.div variants={pageVariants} initial="hidden" animate="visible">
-      <div className="main-nav">
-        <nav className="relative">
-          <ul className="flex justify-between items-center">
-            <div className="logo-container">
-              <Link href="/Home">
-                <Image src={GT_logo} alt="Gammal Tech Logo" width={152} style={{ cursor: "pointer" }} />
-              </Link>
-            </div>
-            <div className={`hidden md:flex space-x-10 ${inter.className}`}>
-              <Link href="/" className="link">Home</Link>
-              <Link href="/" className="link">Pricing</Link>
-              <Link href="/" className="link">Contests</Link>
-              <Link href="/" className="link">AI Challenge</Link>
-              <Link href="/" className="link">Rank</Link>
-              <Link href="https://www.gammal.tech/" className="link">About Us</Link>
-            </div>
-            <div className="md:hidden flex items-center">
-              <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
-                {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
-              </button>
-            </div>
-            <div className="nav-info hidden md:flex items-center">
-              <div className="vl"></div>
-              <Image src={message} alt="Messages" width={25} height={64} className="mx-2" />
-              <Image src={notifications} alt="Notifications" width={25} height={64} className="mx-2" />
-              <Image src={Avatar} alt="Avatar" width={60} height={60} className="mx-2" />
-            </div>
-          </ul>
-
-          {isOpen && (
-            <div
-              ref={menuRef}
-              className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-20 transition-transform transform origin-top-right scale-100 mx-4"
-            >
-              <div className="flex flex-col">
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Home</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Pricing</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Contests</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>AI Challenge</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Rank</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Profile</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Notifications</Link>
-                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Messages</Link>
-                <Link href="https://www.gammal.tech/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>About Us</Link>
-              </div>
-            </div>
-          )}
+      <div className="main-nav bg-white">
+        <nav className="relative flex justify-between items-center p-4">
+          <Link href="/Home" className="logo-container">
+            <Image src={GT_logo} alt="Gammal Tech Logo" width={152} />
+          </Link>
+          <div className={`hidden md:flex space-x-10 ${inter.className}`}>
+            <Link href="/" className="link hover:text-[#005555] transition">Home</Link>
+            <Link href="/" className="link hover:text-[#005555] transition">Pricing</Link>
+            <Link href="/" className="link hover:text-[#005555] transition">Contests</Link>
+            <Link href="/" className="link hover:text-[#005555] transition">AI Challenge</Link>
+            <Link href="/" className="link hover:text-[#005555] transition">Rank</Link>
+            <Link href="https://www.gammal.tech/" className="link hover:text-[#005555] transition">About Us</Link>
+          </div>
+          <div className="md:hidden flex items-center">
+            <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
+              {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+            </button>
+          </div>
+          <div className="nav-info hidden md:flex items-center space-x-4">
+            <Image src={message} alt="Messages" width={25} height={25} />
+            <Image src={notifications} alt="Notifications" width={25} height={25} />
+            <Image src={Avatar} alt="Avatar" width={40} height={40} className="rounded-full" />
+          </div>
         </nav>
+
+        {isOpen && (
+          <div
+            ref={menuRef}
+            className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-20 transition-transform transform origin-top-right scale-100 mx-4"
+          >
+            <div className="flex flex-col">
+              {["Home", "Pricing", "Contests", "AI Challenge", "Rank", "Profile", "Notifications", "Messages", "About Us"].map((item) => (
+                <Link
+                  key={item}
+                  href="/"
+                  className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

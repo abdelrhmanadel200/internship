@@ -7,6 +7,7 @@ import { IconButton } from '@mui/material';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { redirect } from 'next/navigation';
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,7 +29,7 @@ const Login: React.FC = () => {
     try {
       const { data } = await axios.post('/api/auth/login', { email, password });
       localStorage.setItem('token', data.token);
-      router.push('/');
+      redirect('/');
     } catch (err: unknown) {
       if (axios.isAxiosError(err) && err.response) {
         setError(err.response.data.message || 'Error logging in. Please try again.');
