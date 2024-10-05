@@ -7,8 +7,7 @@ import { IconButton } from '@mui/material';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import google from '@/public/google.png';
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -103,7 +102,7 @@ const Login: React.FC<{ closeSignup: () => void; toggleForm: (formType: 'signup'
                 </div> */}
                 <div className="text-center mt-6">
                   <p className="text-lg">Don't have an account?{" "}
-                    <span className="text-teal-600 cursor-pointer" onClick={() => router.push('/views/auth/signup')}>Click here</span>
+                    <span className="text-teal-600 cursor-pointer" onClick={() => router.push("/views/auth/signup")}>Click here</span>
                   </p>
                 </div>
               </div>

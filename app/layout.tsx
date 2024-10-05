@@ -9,7 +9,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-    const router = useRouter();
 
     useEffect(() => {
         const token = localStorage.getItem('token'); // Check for token
