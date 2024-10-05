@@ -1,7 +1,6 @@
 "use client";
 import { Inter } from 'next/font/google';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import LoggedInNavbar from '../components/Navbar2'; // Adjust the path based on your structure
 import LoggedOutNavbar from '../components/Navbar'; // Adjust the path based on your structure
 

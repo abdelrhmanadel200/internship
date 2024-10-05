@@ -101,7 +101,7 @@ const Login: React.FC<{ closeSignup: () => void; toggleForm: (formType: 'signup'
                   </button>
                 </div> */}
                 <div className="text-center mt-6">
-                  <p className="text-lg">Don't have an account?{" "}
+                  <p className="text-lg">Dont have an account?{" "}
                     <span className="text-teal-600 cursor-pointer" onClick={() => router.push("/views/auth/signup")}>Click here</span>
                   </p>
                 </div>
