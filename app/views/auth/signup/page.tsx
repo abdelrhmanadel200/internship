@@ -28,7 +28,7 @@ const Signup: React.FC = () => {
 
     try {
       await axios.post('/api/auth/signup', { name, email, password });
-      router.push('/'); // Redirect to the home page after signup
+      router.push('/'); 
     } catch (err: unknown) {
       if (axios.isAxiosError(err) && err.response) {
         setError(err.response.data.message || 'Error signing up. Please try again.');
@@ -102,12 +102,12 @@ const Signup: React.FC = () => {
                 </div>
               </div>
               <div className="flex justify-end items-start md:hidden absolute top-5 right-5">
-                <IconButton aria-label="close" onClick={() => {/* close function */}}>
+                <IconButton aria-label="close" onClick={() => {}}>
                   <CloseRounded className="text-white" style={{ fontSize: "50px" }} />
                 </IconButton>
               </div>
               <div className="hidden md:flex justify-end items-start">
-                <IconButton aria-label="close" onClick={() => {/* close function */}} className="m-5">
+                <IconButton aria-label="close" onClick={() => {}} className="m-5">
                   <CloseRounded className="text-white" style={{ fontSize: "50px" }} />
                 </IconButton>
               </div>

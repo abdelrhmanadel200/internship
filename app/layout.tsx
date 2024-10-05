@@ -1,8 +1,8 @@
 "use client";
 import { Inter } from 'next/font/google';
 import { useEffect, useState } from 'react';
-import LoggedInNavbar from '../components/Navbar2'; // Adjust the path based on your structure
-import LoggedOutNavbar from '../components/Navbar'; // Adjust the path based on your structure
+import LoggedInNavbar from '../components/Navbar2'; 
+import LoggedOutNavbar from '../components/Navbar'; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
     useEffect(() => {
-        const token = localStorage.getItem('token'); // Check for token
+        const token = localStorage.getItem('token'); 
         setIsLoggedIn(!!token);
     }, []);
 

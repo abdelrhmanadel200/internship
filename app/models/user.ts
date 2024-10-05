@@ -2,9 +2,9 @@ import pool from '../../config/database';
 import bcrypt from 'bcrypt';
 import { ResultSetHeader, RowDataPacket } from 'mysql2'; // Ensure you import the correct types
 
-// Define a User interface
+
 interface User {
-    id: number; // Assuming your user table has an id field
+    id: number; 
     name: string;
     email: string;
     password: string;
@@ -16,7 +16,7 @@ export const createUser = async (name: string, email: string, password: string):
         'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
         [name, email, hashedPassword]
     );
-    return result.insertId; // This should work with the correct type
+    return result.insertId; 
 };
 
 export const findUserByEmail = async (email: string): Promise<User | null> => {
@@ -24,5 +24,5 @@ export const findUserByEmail = async (email: string): Promise<User | null> => {
         'SELECT * FROM users WHERE email = ?', 
         [email]
     );
-    return users.length > 0 ? (users[0] as User) : null; // Type assertion to User
+    return users.length > 0 ? (users[0] as User) : null; 
 };
