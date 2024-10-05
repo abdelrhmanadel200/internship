@@ -8,13 +8,12 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
-const Login: React.FC<{ closeSignup: () => void; toggleForm: (formType: 'signup' | 'resetPassword') => void; }> = ({ closeSignup, toggleForm }) => {
+const Login: React.FC = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,14 +27,12 @@ const Login: React.FC<{ closeSignup: () => void; toggleForm: (formType: 'signup'
 
     try {
       const { data } = await axios.post('/api/auth/login', { email, password });
-      localStorage.setItem('token', data.token); // Store token for later use
+      localStorage.setItem('token', data.token);
       router.push('/');
-    } catch (err: unknown) { // Specify the error type as unknown
+    } catch (err: unknown) {
       if (axios.isAxiosError(err) && err.response) {
-        // Handle Axios error
         setError(err.response.data.message || 'Error logging in. Please try again.');
       } else {
-        // Handle generic error
         setError('Error logging in. Please try again.');
       }
     } finally {
@@ -79,7 +76,7 @@ const Login: React.FC<{ closeSignup: () => void; toggleForm: (formType: 'signup'
                   <div className='flex justify-start w-full mb-5'>
                     <p className="text-m">
                       Forget Your Password?{" "}
-                      <span className="text-teal-600 cursor-pointer" onClick={() => toggleForm("resetPassword")}>Reset Here</span>
+                      <span className="text-teal-600 cursor-pointer" onClick={() => {/* handle password reset */}}>Reset Here</span>
                     </p>
                   </div>
                   <button
@@ -94,20 +91,14 @@ const Login: React.FC<{ closeSignup: () => void; toggleForm: (formType: 'signup'
                   <p className="mx-3 text-lg">or</p>
                   <hr className="flex-1 border-t border-gray-500" />
                 </div>
-                {/* <div className="flex justify-center mt-4">
-                  <button className="w-80 md:w-96 bg-white text-gray-600 p-1 rounded-lg flex items-center hover:opacity-90">
-                    <Image src={google} alt="Google icon" width={45} />
-                    <span className="flex-1 text-center text-lg font-semibold">Log In with Google</span>
-                  </button>
-                </div> */}
                 <div className="text-center mt-6">
-                  <p className="text-lg">Dont have an account?{" "}
+                  <p className="text-lg">Don&apos;t have an account?{" "}
                     <span className="text-teal-600 cursor-pointer" onClick={() => router.push("/views/auth/signup")}>Click here</span>
                   </p>
                 </div>
               </div>
               <div className="flex justify-end items-start absolute top-5 right-5 md:static md:m-5">
-                <IconButton aria-label="close" onClick={closeSignup}>
+                <IconButton aria-label="close" onClick={() => {/* close function */}}>
                   <CloseRounded className="text-white" style={{ fontSize: "50px" }} />
                 </IconButton>
               </div>
