@@ -1,14 +1,11 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import GT_logo from "@/public/Component 6.png";
-import notifications from "@/public/icon (1).png";
-import message from "@/public/455.png";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import Avatar from "@/public/Avatar.png";
 import { motion } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaEnvelope, FaBell, FaUserCircle } from "react-icons/fa";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -49,26 +46,39 @@ const NavBar = () => {
           <Link href="/Home" className="logo-container">
             <Image src={GT_logo} alt="Gammal Tech Logo" width={152} />
           </Link>
-          <div className={`hidden md:flex space-x-10 ${inter.className}`}>
-            <Link href="/" className="link hover:text-[#005555] transition">Home</Link>
-            <Link href="/" className="link hover:text-[#005555] transition">Pricing</Link>
-            <Link href="/" className="link hover:text-[#005555] transition">Contests</Link>
-            <Link href="/" className="link hover:text-[#005555] transition">AI Challenge</Link>
-            <Link href="/" className="link hover:text-[#005555] transition">Rank</Link>
-            <Link href="https://www.gammal.tech/" className="link hover:text-[#005555] transition">About Us</Link>
+          
+          {/* Desktop Menu */}
+          <div className={`hidden lg:flex space-x-10 ${inter.className}`}>
+            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Home</Link>
+            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Pricing</Link>
+            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Contests</Link>
+            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">AI Challenge</Link>
+            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Rank</Link>
+            <Link href="https://www.gammal.tech/" className="text-[20px] link hover:text-[#005555] transition">About Us</Link>
           </div>
-          <div className="md:hidden flex items-center">
+
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden items-center">
             <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
               {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
             </button>
           </div>
-          <div className="nav-info hidden md:flex items-center space-x-4">
-            <Image src={message} alt="Messages" width={25} height={25} />
-            <Image src={notifications} alt="Notifications" width={25} height={25} />
-            <Image src={Avatar} alt="Avatar" width={40} height={40} className="rounded-full" />
+
+          {/* Notification Icons */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <Link href="/messages">
+              <FaEnvelope className="text-[#007676] text-2xl" />
+            </Link>
+            <Link href="/notifications">
+              <FaBell className="text-[#007676] text-2xl" />
+            </Link>
+            <Link href="/profile">
+              <FaUserCircle className="text-[#007676] text-2xl" />
+            </Link>
           </div>
         </nav>
 
+        {/* Mobile Dropdown Menu */}
         {isOpen && (
           <div
             ref={menuRef}

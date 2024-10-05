@@ -44,7 +44,7 @@ const NavBarHome = () => {
 
   return (
     <div className={`py-5 ${inter.className}`}>
-      <nav className="relative flex items-center justify-between h-16"> {/* Defined height */}
+      <nav className="relative flex items-center justify-between h-16">
         <Link href="/" className="flex items-center">
           <Image
             src={GT_logo}
@@ -53,26 +53,32 @@ const NavBarHome = () => {
             className="cursor-pointer"
           />
         </Link>
-        <div className="hidden md:flex space-x-10 items-center"> {/* Added items-center */}
+
+        {/* Show for screens greater than 1012px */}
+        <div className="hidden lg:flex space-x-10 items-center">
           {navItems.map(({ name, path }) => (
-            <Link key={name} href={path} className="text-[#007676] text-[20px] font-normal flex items-center">
+            <Link key={name} href={path} className="hover:text-[#005555] text-[20px] font-normal">
               {name}
             </Link>
           ))}
         </div>
-        <div className="md:hidden flex items-center  mr-4">
+
+        {/* Mobile Menu Button */}
+        <div className="flex lg:hidden items-center mr-4">
           <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
             {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
           </button>
         </div>
-        <div className="hidden md:flex items-center mr-4"> 
-  <Link href="/" className="bg-[#007676] text-white rounded-full w-[156px] h-[50px] flex items-center justify-center text-base font-bold transition-all duration-300 ease-in-out hover:bg-[#005555] hover:shadow-lg">
-    GET STARTED
-  </Link>
-</div>
 
+        {/* Call to Action Button */}
+        <div className="hidden lg:flex items-center mr-4">
+          <Link href="/views/auth/signup" className="bg-[#007676] text-white rounded-full w-[156px] h-[50px] flex items-center justify-center text-base font-bold transition-all duration-300 ease-in-out hover:bg-[#005555] hover:shadow-lg">
+            GET STARTED
+          </Link>
+        </div>
       </nav>
 
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div
           ref={menuRef}
