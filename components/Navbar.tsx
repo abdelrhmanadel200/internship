@@ -55,11 +55,11 @@ const NavBarHome = () => {
           </li>
           <div className="hidden md:flex mt-5 space-x-20 w-100%">
             <Link href="/" className="text-[#007676] text-[20px] font-normal">Home</Link>
-            <Link href="/pricing" className="text-[#007676] text-[20px] font-normal">Pricing</Link>
-            <Link href="/contests" className="text-[#007676] text-[20px] font-normal">Contests</Link>
-            <Link href="/ai-challenge" className="text-[#007676] text-[20px] font-normal">AI Challenge</Link>
-            <Link href="/rank" className="text-[#007676] text-[20px] font-normal">Rank</Link>
-            <Link href="/about" className="text-[#007676] text-[20px] font-normal">About Us</Link>
+            <Link href="/" className="text-[#007676] text-[20px] font-normal">Pricing</Link>
+            <Link href="/" className="text-[#007676] text-[20px] font-normal">Contests</Link>
+            <Link href="/" className="text-[#007676] text-[20px] font-normal">AI Challenge</Link>
+            <Link href="/" className="text-[#007676] text-[20px] font-normal">Rank</Link>
+            <Link href="/" className="text-[#007676] text-[20px] font-normal">About Us</Link>
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
@@ -94,35 +94,35 @@ const NavBarHome = () => {
                 Home
               </Link>
               <Link
-                href="/pricing"
+                href="/"
                 className="text-[#007676] text-lg font-semibold hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >
                 Pricing
               </Link>
               <Link
-                href="/contests"
+                href="/"
                 className="text-[#007676] text-lg font-semibold hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >
                 Contests
               </Link>
               <Link
-                href="/ai-challenge"
+                href="/"
                 className="text-[#007676] text-lg font-semibold hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >
                 AI Challenge
               </Link>
               <Link
-                href="/rank"
+                href="/"
                 className="text-[#007676] text-lg font-semibold hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >
                 Rank
               </Link>
               <Link
-                href="/about"
+                href="/"
                 className="text-[#007676] text-lg font-semibold hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >

@@ -53,11 +53,11 @@ const NavBar = () => {
               </Link>
             </div>
             <div className={`hidden md:flex space-x-10 ${inter.className}`}>
-              <Link href="/Home" className="link">Home</Link>
-              <Link href="/pricing" className="link">Pricing</Link>
-              <Link href="/contests" className="link">Contests</Link>
-              <Link href="/ai-challenge" className="link">AI Challenge</Link>
-              <Link href="/rank" className="link">Rank</Link>
+              <Link href="/" className="link">Home</Link>
+              <Link href="/" className="link">Pricing</Link>
+              <Link href="/" className="link">Contests</Link>
+              <Link href="/" className="link">AI Challenge</Link>
+              <Link href="/" className="link">Rank</Link>
               <Link href="https://www.gammal.tech/" className="link">About Us</Link>
             </div>
             <div className="md:hidden flex items-center">
@@ -79,14 +79,14 @@ const NavBar = () => {
               className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-20 transition-transform transform origin-top-right scale-100 mx-4"
             >
               <div className="flex flex-col">
-                <Link href="/Home" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Home</Link>
-                <Link href="/pricing" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Pricing</Link>
-                <Link href="/contests" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Contests</Link>
-                <Link href="/ai-challenge" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>AI Challenge</Link>
-                <Link href="/rank" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Rank</Link>
-                <Link href="/profile" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Profile</Link>
-                <Link href="/notifications" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Notifications</Link>
-                <Link href="/messages" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Messages</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Home</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Pricing</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Contests</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>AI Challenge</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Rank</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Profile</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Notifications</Link>
+                <Link href="/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>Messages</Link>
                 <Link href="https://www.gammal.tech/" className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg" onClick={() => setIsOpen(false)}>About Us</Link>
               </div>
             </div>
