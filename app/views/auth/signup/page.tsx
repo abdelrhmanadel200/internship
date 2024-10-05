@@ -8,13 +8,12 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
-const Signup: React.FC<{ closeSignup: () => void; }> = ({ closeSignup }) => {
+const Signup: React.FC = () => {
   const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,21 +27,18 @@ const Signup: React.FC<{ closeSignup: () => void; }> = ({ closeSignup }) => {
     setError('');
 
     try {
-        await axios.post('/api/auth/signup', { name, email, password });
-        router.push('/'); // Redirect to login page after signup
-    } catch (err: unknown) { // Specify the error type as unknown
-        if (axios.isAxiosError(err) && err.response) {
-            // Handle Axios error
-            setError(err.response.data.message || 'Error signing up. Please try again.');
-        } else {
-            // Handle generic error
-            setError('Error signing up. Please try again.');
-        }
+      await axios.post('/api/auth/signup', { name, email, password });
+      router.push('/'); // Redirect to the home page after signup
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err) && err.response) {
+        setError(err.response.data.message || 'Error signing up. Please try again.');
+      } else {
+        setError('Error signing up. Please try again.');
+      }
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
-
+  };
 
   return (
     <motion.div>
@@ -99,12 +95,6 @@ const Signup: React.FC<{ closeSignup: () => void; }> = ({ closeSignup }) => {
                   <p className="mx-3 text-lg">or</p>
                   <hr className="flex-1 border-t border-gray-500" />
                 </div>
-                {/* <div className="flex justify-center mt-4">
-                  <button className="w-80 md:w-96 bg-white text-gray-600 p-1 rounded-lg flex items-center hover:opacity-90">
-                    <Image src={google} alt="Google icon" width={45} />
-                    <span className="flex-1 text-center text-lg font-semibold">Sign Up with Google</span>
-                  </button>
-                </div> */}
                 <div className="text-center mt-6">
                   <p className="text-lg">Already have an account?{" "}
                     <span className="text-teal-600 cursor-pointer" onClick={() => router.push("/views/auth/login")}>click here</span>
@@ -112,12 +102,12 @@ const Signup: React.FC<{ closeSignup: () => void; }> = ({ closeSignup }) => {
                 </div>
               </div>
               <div className="flex justify-end items-start md:hidden absolute top-5 right-5">
-                <IconButton aria-label="close" onClick={closeSignup}>
+                <IconButton aria-label="close" onClick={() => {/* close function */}}>
                   <CloseRounded className="text-white" style={{ fontSize: "50px" }} />
                 </IconButton>
               </div>
               <div className="hidden md:flex justify-end items-start">
-                <IconButton aria-label="close" onClick={closeSignup} className="m-5">
+                <IconButton aria-label="close" onClick={() => {/* close function */}} className="m-5">
                   <CloseRounded className="text-white" style={{ fontSize: "50px" }} />
                 </IconButton>
               </div>
