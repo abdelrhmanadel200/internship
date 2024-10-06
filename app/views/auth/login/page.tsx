@@ -102,7 +102,7 @@ const Login: React.FC = () => {
             </form>
 
             <div className="mt-4 text-center">
-              <span className="text-gray-600">Don't have an account? </span>
+              <span className="text-gray-600">Dont have an account? </span>
               <button
                 className="text-teal-600 underline font-semibold"
                 onClick={() => router.push("/views/auth/signup")}
