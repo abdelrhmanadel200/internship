@@ -1,7 +1,7 @@
 "use client";
 import { Inter } from 'next/font/google';
 import { useEffect, useState } from 'react';
-import LoggedInNavbar from '../components/Navbar'; 
+import LoggedInNavbar from '../components/Navbar2'; 
 import LoggedOutNavbar from '../components/Navbar'; 
 
 const inter = Inter({ subsets: ["latin"] });
