@@ -1,11 +1,10 @@
-"use client";
 import React, { useState, useRef, useEffect } from "react";
 import GT_logo from "@/public/Component 6.png";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaBars, FaTimes, FaEnvelope, FaBell, FaUserCircle } from "react-icons/fa";
+import { FaBars, FaTimes, FaEnvelope, FaBell, FaUserCircle, FaSignOutAlt } from "react-icons/fa"; // Import logout icon
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -13,6 +12,7 @@ const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
+// Animation variants
 const pageVariants = {
   hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
@@ -39,6 +39,12 @@ const NavBar = () => {
     setIsOpen((prev) => !prev);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear token from local storage
+    // Redirect to login page or home page
+    window.location.href = "/views/auth/login"; // Adjust the path as necessary
+  };
+
   return (
     <motion.div variants={pageVariants} initial="hidden" animate="visible">
       <div className="main-nav bg-white">
@@ -46,15 +52,12 @@ const NavBar = () => {
           <Link href="/Home" className="logo-container">
             <Image src={GT_logo} alt="Gammal Tech Logo" width={152} />
           </Link>
-          
+
           {/* Desktop Menu */}
           <div className={`hidden lg:flex space-x-10 ${inter.className}`}>
-            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Home</Link>
-            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Pricing</Link>
-            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Contests</Link>
-            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">AI Challenge</Link>
-            <Link href="/" className="text-[20px] link hover:text-[#005555] transition">Rank</Link>
-            <Link href="https://www.gammal.tech/" className="text-[20px] link hover:text-[#005555] transition">About Us</Link>
+            {["Home", "Pricing", "Contests", "AI Challenge", "Rank", "About Us"].map((item) => (
+              <Link key={item} href="/" className="text-[20px] link hover:text-[#005555] transition">{item}</Link>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,6 +78,10 @@ const NavBar = () => {
             <Link href="/profile">
               <FaUserCircle className="text-[#007676] text-2xl" />
             </Link>
+            {/* Logout Icon */}
+            <button onClick={handleLogout} className="text-[#007676]">
+              <FaSignOutAlt className="text-2xl" />
+            </button>
           </div>
         </nav>
 
@@ -95,6 +102,12 @@ const NavBar = () => {
                   {item}
                 </Link>
               ))}
+              <button
+                onClick={handleLogout}
+                className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg"
+              >
+                Logout
+              </button>
             </div>
           </div>
         )}
