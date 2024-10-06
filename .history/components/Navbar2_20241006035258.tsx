@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import GT_logo from "@/public/gammalTech-logos/Component 6.png";
+import GT_logo from "@/public/Component 6.png";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Image from "next/image";

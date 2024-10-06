@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import LoggedInNavbar from '../components/Navbar2'; 
 import LoggedOutNavbar from '../components/Navbar'; 
-import Footer from '../components/Footer';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +21,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
                 </header>
                 <main>{children}</main>
-                <Footer />
             </body>
         </html>
     );
