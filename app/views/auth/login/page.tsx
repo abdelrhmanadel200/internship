@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { Poppins } from "next/font/google";
-import { CloseRounded } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
