@@ -61,7 +61,7 @@ const NavBarHome = () => {
 
         <div className="hidden lg:flex space-x-10 items-center">
           {navItems.map(({ name, path }) => (
-            <Link key={name} href={path} className=" text-white hover:text-secondary text-[20px] font-normal">
+            <Link key={name} href={path} className=" text-white hover:text-[#005555] text-[20px] font-normal">
               {name}
             </Link>
           ))}
@@ -97,7 +97,7 @@ const NavBarHome = () => {
               <Link
                 key={name}
                 href={path}
-                className=" text-white text-lg font-normal  hover:bg-secondary transition duration-200 p-3 rounded-lg mx-5"
+                className=" text-white text-lg font-normal transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >
                 
