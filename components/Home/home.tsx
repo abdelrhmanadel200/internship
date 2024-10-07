@@ -42,7 +42,7 @@ const Home: React.FC = () => {
     },
   ];
   return (
-    <main >
+    <main>
       <div className="flex justify-between container mx-auto px-4 py-8 flex-wrap center-content">
         <div className="flex flex-col items-center">
           <div className="border-4 border-black    rounded-full w-48 bg-customOrange mb-10 mt-10">
@@ -120,7 +120,9 @@ const Home: React.FC = () => {
               <tbody className="">
                 {users.map((user, index) => (
                   <tr key={index}>
-                    <td className="px-6 py-4 text-center md: px-0 md: py-0 sm:px-0 sm:py-0">{user.rank}</td>
+                    <td className="px-6 py-4 text-center md: px-0 md: py-0 sm:px-0 sm:py-0">
+                      {user.rank}
+                    </td>
                     <td className="px-6 py-4 md: px-0 md: py-0 sm:px-0 sm:py-0">
                       <div className="flex items-center space-x-3">
                         <div className="inline-flex w-10 h-10">
@@ -146,7 +148,9 @@ const Home: React.FC = () => {
               </tbody>
             </table>
             <div className="flex justify-center">
-            <button className="border-2 border-secondary p-2 px-12 rounded-xl text-lg  mt-10 w-64 hover:bg-secondary">See Top Coders</button>
+              <button className="border-2 border-secondary p-2 px-12 rounded-xl text-lg  mt-10 w-64 hover:bg-secondary">
+                See Top Coders
+              </button>
             </div>
           </div>
         </div>

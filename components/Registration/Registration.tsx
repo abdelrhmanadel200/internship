@@ -12,7 +12,7 @@ import {
   CircularProgress,
   Box,
 } from "@mui/material";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const Registration: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -31,8 +31,8 @@ const Registration: React.FC = () => {
   // Extract email and password from query parameters
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    setEmail(urlParams.get('email') || "");
-    setPassword(urlParams.get('password') || "");
+    setEmail(urlParams.get("email") || "");
+    setPassword(urlParams.get("password") || "");
   }, []);
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -40,7 +40,16 @@ const Registration: React.FC = () => {
     setLoading(true);
 
     // Validate required fields
-    if (!firstName || !lastName || age === "" || !phoneNumber || !country || !state || !city || !university) {
+    if (
+      !firstName ||
+      !lastName ||
+      age === "" ||
+      !phoneNumber ||
+      !country ||
+      !state ||
+      !city ||
+      !university
+    ) {
       console.error("Please fill in all required fields.");
       setLoading(false);
       return; // Stop further execution
@@ -55,14 +64,18 @@ const Registration: React.FC = () => {
         state,
         city,
         university: university === "Other" ? otherSchool : university,
-        email,   // Include email
+        email, // Include email
         password, // Include password
       });
 
       // Redirect to home page after registration
       window.location.href = "/";
-    } catch (error:any) {
-      console.error("Registration error:", error.response?.data || error);
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      console.error(
+        "Registration error:",
+        axiosError.response?.data || axiosError.message || error
+      );
       // Redirect to home page even if there's an error
       window.location.href = "/";
     } finally {
@@ -89,7 +102,8 @@ const Registration: React.FC = () => {
               sx={{
                 width: "300px",
                 mr: 1,
-                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "orange" },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { borderColor: "orange" },
               }}
               label="First Name"
               onChange={(e) => setFirstName(e.target.value)}
@@ -109,7 +123,8 @@ const Registration: React.FC = () => {
               sx={{
                 width: "300px",
                 ml: 1,
-                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "orange" },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { borderColor: "orange" },
               }}
               label="Last Name"
               onChange={(e) => setLastName(e.target.value)}
@@ -133,7 +148,8 @@ const Registration: React.FC = () => {
               sx={{
                 width: "300px",
                 mr: 1,
-                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "orange" },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { borderColor: "orange" },
               }}
               label="Age"
               onChange={(e) => setAge(Number(e.target.value))}
@@ -155,7 +171,8 @@ const Registration: React.FC = () => {
               sx={{
                 width: "300px",
                 ml: 1,
-                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "orange" },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { borderColor: "orange" },
               }}
               onChange={(e) => setPhoneNumber(e.target.value)}
               inputProps={{ maxLength: 11 }}
