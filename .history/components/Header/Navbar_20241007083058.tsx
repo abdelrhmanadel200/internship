@@ -4,11 +4,18 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react'; 
 import { FiHome, FiInfo, FiDollarSign, FiUser, FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 import "@/styles/globals.css";
+<<<<<<< HEAD:components/Header/Navbar.tsx
+import footerLogo from "@/public/gammalTech-logos/footer-logo.png";
+import {MenuIcon} from 'lucide-react';
+import {X} from 'lucide-react';
+
+=======
 import GT_logo from "@/public/c186678f7cd589c185fff8baa189e685.png";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+>>>>>>> 197e556123912e996f0bcd58fa157ef5007fde0b:components/Navbar.tsx
 
   let timeoutId: string | number | NodeJS.Timeout | undefined; 
 
@@ -34,6 +41,17 @@ const Navbar = () => {
   };
 
   return (
+<<<<<<< HEAD:components/Header/Navbar.tsx
+    <div className={`py-5 ${inter.className} bg-primary`}>
+      <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
+        <Link href="/" className="flex items-center">
+          <Image
+            src={footerLogo}
+            alt="Gammal Tech Logo"
+            width={152}
+            className="cursor-pointer"
+          />
+=======
     <header className={`flex items-center justify-between shadow-md h-16 ${darkMode ? 'bg-gradient-to-r from-[#00454A] to-[#007C7E]' : 'bg-gradient-to-r from-teal-500 to-teal-700'}`}>
       <div className="flex-shrink-0">
         <Link href="/">
@@ -70,12 +88,65 @@ const Navbar = () => {
 
         <Link href="/" className={`flex items-center ${darkMode ? 'text-gray-300 hover:text-white' : 'text-white hover:text-gray-200'} transition duration-200 mx-2 p-2 rounded-md`} onClick={handleLinkClick}>
           <FiHome className="mr-1" /> Home
+>>>>>>> 197e556123912e996f0bcd58fa157ef5007fde0b:components/Navbar.tsx
         </Link>
 
         <Link href="https://www.gammal.tech/" className={`flex items-center ${darkMode ? 'text-gray-300 hover:text-white' : 'text-white hover:text-gray-200'} transition duration-200 mx-2 p-2 rounded-md`} onClick={handleLinkClick}>
           <FiInfo className="mr-1" /> About
         </Link>
 
+<<<<<<< HEAD:components/Header/Navbar.tsx
+        <div className="hidden lg:flex space-x-10 items-center">
+          {navItems.map(({ name, path }) => (
+            <Link key={name} href={path} className=" text-white hover:text-[#005555] text-[20px] font-normal">
+              {name}
+            </Link>
+          ))}
+        </div>
+
+
+        <div className="flex lg:hidden items-center mr-4">
+          <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
+            {isOpen ? <X size={32} color="white" /> : <MenuIcon size={32} color="white" />}
+            
+            
+          </button>
+        </div>
+
+
+        <div className="hidden lg:flex items-center mr-4">
+          <Link href="/views/auth/signup" className="bg-[#007676] text-white rounded-full w-[156px] h-[50px] flex items-center justify-center text-base font-bold transition-all duration-300 ease-in-out hover:bg-[#005555] hover:shadow-lg">
+            GET STARTED
+          </Link>
+        </div>
+      </nav>
+
+
+      {isOpen && (
+        <div className="flex">
+        <div
+          ref={menuRef}
+          className="absolute right-0 mt-2 w-48 bg-primary z-20 transition-transform transform origin-top-right scale-100 w-full"
+        >
+          <div className="flex flex-col lg:hidden items-center">
+            {navItems.map(({ name, path }) => (
+              
+              <Link
+                key={name}
+                href={path}
+                className=" text-white text-lg font-normal hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
+                onClick={() => setIsOpen(false)}
+              >
+                
+                {name}
+              </Link>
+            ))}
+          </div>
+        </div>
+        </div>
+      )}
+    </div>
+=======
         <Link href="/pricing" className={`flex items-center ${darkMode ? 'text-gray-300 hover:text-white' : 'text-white hover:text-gray-200'} transition duration-200 mx-2 p-2 rounded-md`} onClick={handleLinkClick}>
           <FiDollarSign className="mr-1" /> Pricing
         </Link>
@@ -112,6 +183,7 @@ const Navbar = () => {
         
       </nav>
     </header>
+>>>>>>> 197e556123912e996f0bcd58fa157ef5007fde0b:components/Navbar.tsx
   );
 };
 
