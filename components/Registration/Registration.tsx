@@ -12,7 +12,7 @@ import {
   CircularProgress,
   Box,
 } from "@mui/material";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const Registration: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -61,8 +61,9 @@ const Registration: React.FC = () => {
 
       // Redirect to home page after registration
       window.location.href = "/";
-    } catch (error:any) {
-      console.error("Registration error:", error.response?.data || error);
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      console.error("Registration error:", axiosError.response?.data || axiosError.message || error);
       // Redirect to home page even if there's an error
       window.location.href = "/";
     } finally {

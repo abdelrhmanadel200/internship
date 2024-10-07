@@ -126,7 +126,7 @@ const Login: React.FC = () => {
 
           <div className="mt-4 text-center">
             <span className="text-gray-600 text-[17px] font-normal">
-              Don't have an account?{" "}
+              Dont have an account?{" "}
             </span>
             <Link href="/views/auth/signup" className="text-teal-600 underline font-semibold">
               Sign Up

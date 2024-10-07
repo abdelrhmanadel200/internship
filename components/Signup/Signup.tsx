@@ -37,7 +37,7 @@ const Signup: React.FC = () => {
       // Redirect to registration page with email and password as query parameters
       window.location.href = `/views/auth/registration?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
     } catch (error) {
-    //   console.error(error.response?.data);
+      console.error("error");
       setError("An error occurred during signup.");
     } finally {
       setLoading(false);
