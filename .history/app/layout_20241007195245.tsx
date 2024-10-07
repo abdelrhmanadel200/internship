@@ -1,4 +1,4 @@
-"use client";
+
 import { Inter, Poppins } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import LoggedInNavbar from '../components/Header/Navbar2'; 

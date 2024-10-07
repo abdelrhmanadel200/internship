@@ -22,11 +22,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <html lang="en">
             <body className={inter.className}>
-                <header className={inter.className}>
+                <header>
                     {isLoggedIn ? <LoggedInNavbar /> : <LoggedOutNavbar />}
                 </header>
-                <main  className={poppins.className}>{children}</main>
-                <Footer/>
+                <main>{children}</main>
+                <Footer />
             </body>
         </html>
     );

@@ -1,16 +1,26 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import GT_logo from "@/public/gammalTech-logos/Component 6.png";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import { FaBars, FaTimes, FaEnvelope, FaBell, FaUserCircle } from "react-icons/fa";
 import "@/styles/globals.css";
 import {MenuIcon} from 'lucide-react';
 import {X} from 'lucide-react';
 import {MessageCircle} from 'lucide-react';
 import {Bell} from 'lucide-react';
 import {UserCircle} from 'lucide-react';
-import footerLogo from "@/public/gammalTech-logos/footer-logo.png";
+import footerLogo from "@/public/gammalTech-logos/footer-logo.png"
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
 
+const pageVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+};
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +53,7 @@ const NavBar = () => {
   };
 
   return (
-<div className={`py-5 bg-primary w-full`}>
+<div className={`py-5 ${inter.className} bg-primary w-full`}>
       <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
         <Link href="/" className="flex items-center">
           <Image

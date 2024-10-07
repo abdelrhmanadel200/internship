@@ -43,7 +43,7 @@ const NavBar = () => {
   };
 
   return (
-<div className={`py-5 bg-primary w-full`}>
+<div className={`py-5 ${inter.className} bg-primary w-full`}>
       <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
         <Link href="/" className="flex items-center">
           <Image

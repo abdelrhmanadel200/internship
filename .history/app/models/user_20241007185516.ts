@@ -8,7 +8,14 @@ interface User {
     name: string;
     email: string;
     password: string;
-    
+    firstName: string, 
+    lastName: string, 
+    age: number, 
+    phoneNumber: string, 
+    country: string, 
+    state: string, 
+    city: string, 
+    university: string 
 }
 
 export const createUser = async (name: string, email: string, password: string): Promise<number> => {

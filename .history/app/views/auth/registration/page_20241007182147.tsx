@@ -61,7 +61,7 @@ const Registration: React.FC = () => {
 
       // Redirect to home page after registration
       window.location.href = "/";
-    } catch (error:any) {
+    } catch (error) {
       console.error("Registration error:", error.response?.data || error);
       // Redirect to home page even if there's an error
       window.location.href = "/";

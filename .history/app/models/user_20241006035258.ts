@@ -8,7 +8,6 @@ interface User {
     name: string;
     email: string;
     password: string;
-    
 }
 
 export const createUser = async (name: string, email: string, password: string): Promise<number> => {

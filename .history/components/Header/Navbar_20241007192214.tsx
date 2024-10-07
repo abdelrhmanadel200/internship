@@ -9,6 +9,10 @@ import {MenuIcon} from 'lucide-react';
 import {X} from 'lucide-react';
 
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
 
 const NavBarHome = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +45,7 @@ const NavBarHome = () => {
   ];
 
   return (
-    <div className={`py-5 bg-primary`}>
+    <div className={`py-5 ${inter.className} bg-primary`}>
       <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
         <Link href="/" className="flex items-center">
           <Image

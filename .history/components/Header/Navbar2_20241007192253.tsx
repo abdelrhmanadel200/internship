@@ -9,7 +9,11 @@ import {X} from 'lucide-react';
 import {MessageCircle} from 'lucide-react';
 import {Bell} from 'lucide-react';
 import {UserCircle} from 'lucide-react';
-import footerLogo from "@/public/gammalTech-logos/footer-logo.png";
+import footerLogo from "@/public/gammalTech-logos/footer-logo.png"
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
 
 
 const NavBar = () => {
@@ -43,7 +47,7 @@ const NavBar = () => {
   };
 
   return (
-<div className={`py-5 bg-primary w-full`}>
+<div className={`py-5 ${inter.className} bg-primary w-full`}>
       <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
         <Link href="/" className="flex items-center">
           <Image

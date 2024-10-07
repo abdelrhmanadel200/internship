@@ -41,7 +41,7 @@ const NavBarHome = () => {
   ];
 
   return (
-    <div className={`py-5 bg-primary`}>
+    <div className={`py-5bg-primary`}>
       <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
         <Link href="/" className="flex items-center">
           <Image

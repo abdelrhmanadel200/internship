@@ -29,15 +29,5 @@ body {
   }
   .cards-container{
     justify-content: center;
-    
-  }
-
-}
-
-@media screen and (min-width:1024px) {
-
-
-  .cards{
-    margin-right: 20px;
   }
 }
