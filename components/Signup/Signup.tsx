@@ -37,7 +37,7 @@ const Signup: React.FC = () => {
       // Redirect to registration page with email and password as query parameters
       window.location.href = `/views/auth/registration?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
     } catch (error) {
-      console.error(error.response?.data);
+    //   console.error(error.response?.data);
       setError("An error occurred during signup.");
     } finally {
       setLoading(false);
@@ -141,7 +141,7 @@ const Signup: React.FC = () => {
             <span className="text-gray-600 text-[17px] font-normal">
               Already have an account?{" "}
             </span>
-            <Link href="/views/auth/login" className="text-teal-600 underline font-semibold">
+            <Link href="/login" className="text-teal-600 underline font-semibold">
               Log In
             </Link>
           </div>
