@@ -47,6 +47,7 @@ const NavBarHome = () => {
           ))}
         </div>
 
+        {/* Mobile Menu Button */}
         <div className="flex lg:hidden items-center mr-4">
           <button
             onClick={toggleMenu}
@@ -75,7 +76,7 @@ const NavBarHome = () => {
                 key={name}
                 href={path}
                 className="text-white text-lg font-normal hover:bg-secondary transition duration-200 p-3 rounded-lg mx-5"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpen(false)} // Close the menu when an item is clicked
               >
                 {name}
               </Link>
