@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
 
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start flex-wrap">
             <p className="text-white font-semibold">1. Featured links</p>
             <div className="mt-5 flex flex-col space-y-2 text-center lg:text-left">
               <div className="flex space-x-8">

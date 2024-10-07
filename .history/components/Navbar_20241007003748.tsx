@@ -6,6 +6,9 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa"; 
 import "@/styles/globals.css";
+import footerLogo from "@/public/gammalTech-logos/footer-logo.png";
+import {BarChart2Icon} from 'lucide-react';
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,11 +46,11 @@ const NavBarHome = () => {
   ];
 
   return (
-    <div className={`py-5 ${inter.className}`}>
-      <nav className="relative flex items-center justify-between h-16">
+    <div className={`py-5 ${inter.className} bg-primary`}>
+      <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
         <Link href="/" className="flex items-center">
           <Image
-            src={GT_logo}
+            src={footerLogo}
             alt="Gammal Tech Logo"
             width={152}
             className="cursor-pointer"
@@ -57,7 +60,7 @@ const NavBarHome = () => {
 
         <div className="hidden lg:flex space-x-10 items-center">
           {navItems.map(({ name, path }) => (
-            <Link key={name} href={path} className="hover:text-[#005555] text-[20px] font-normal">
+            <Link key={name} href={path} className=" text-white hover:text-[#005555] text-[20px] font-normal">
               {name}
             </Link>
           ))}
@@ -66,7 +69,9 @@ const NavBarHome = () => {
 
         <div className="flex lg:hidden items-center mr-4">
           <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
-            {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+            {/* {isOpen ? <FaTimes className="text-4xl text-white" /> : <FaBars className="text-4xl  text-white" />} */}
+            <BarChart2Icon size={32} color="green" />
+
           </button>
         </div>
 
@@ -80,22 +85,26 @@ const NavBarHome = () => {
 
 
       {isOpen && (
+        <div className="flex">
         <div
           ref={menuRef}
-          className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-20 transition-transform transform origin-top-right scale-100 mx-4"
+          className="absolute right-0 mt-2 w-48 bg-primary z-20 transition-transform transform origin-top-right scale-100 w-full"
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col lg:hidden items-center">
             {navItems.map(({ name, path }) => (
+              
               <Link
                 key={name}
                 href={path}
-                className="text-[#007676] text-lg font-semibold hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
+                className=" text-white text-lg font-normal hover:bg-[#f0f0f0] transition duration-200 p-3 rounded-lg mx-5"
                 onClick={() => setIsOpen(false)}
               >
+                
                 {name}
               </Link>
             ))}
           </div>
+        </div>
         </div>
       )}
     </div>
