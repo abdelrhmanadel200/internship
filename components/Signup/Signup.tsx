@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { Poppins } from "next/font/google";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Link from "next/link";
-import { TextField, Button } from '@mui/material';
+import { TextField, Button } from "@mui/material";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,23 +21,30 @@ const Signup: React.FC = () => {
     event.preventDefault();
     setLoading(true);
     setError("");
-  
+
     try {
-      // Send sign up request
-      await axios.post('/api/auth/signup', {
-        name,
-        email,
-        password,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
+      // Send sign-up request
+      await axios.post(
+        "/api/auth/signup",
+        {
+          name,
+          email,
+          password,
         },
-      });
-  
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       // Redirect to registration page with email and password as query parameters
-      window.location.href = `/views/auth/registration?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
-    } catch (300) {
-      console.error(300);
+      window.location.href = `/views/auth/registration?email=${encodeURIComponent(
+        email
+      )}&password=${encodeURIComponent(password)}`;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      console.error(axiosError.response?.data);
       setError("An error occurred during signup.");
     } finally {
       setLoading(false);
@@ -47,11 +54,14 @@ const Signup: React.FC = () => {
   return (
     <section className={poppins.className}>
       <div className="flex items-center justify-center min-h-screen p-4">
-        <div className="bg-white rounded-lg  p-8 w-full max-w-md">
+        <div className="bg-white rounded-lg p-8 w-full max-w-md">
           <h1 className="text-4xl font-bold text-center text-black mb-6">
             Sign Up
           </h1>
-          <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col items-center space-y-4"
+          >
             <TextField
               label="User Name"
               variant="outlined"
@@ -60,17 +70,17 @@ const Signup: React.FC = () => {
               onChange={(e) => setName(e.target.value)}
               className="w-[342px]"
               InputLabelProps={{
-                style: { color: '#094546' },
+                style: { color: "#094546" },
               }}
               InputProps={{
                 style: {
-                  borderRadius: '10px',
-                  padding: '0 15px',
+                  borderRadius: "10px",
+                  padding: "0 15px",
                 },
               }}
               sx={{
-                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff914c',
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#ff914c",
                 },
               }}
             />
@@ -82,17 +92,17 @@ const Signup: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="w-[342px]"
               InputLabelProps={{
-                style: { color: '#094546' },
+                style: { color: "#094546" },
               }}
               InputProps={{
                 style: {
-                  borderRadius: '10px',
-                  padding: '0 15px',
+                  borderRadius: "10px",
+                  padding: "0 15px",
                 },
               }}
               sx={{
-                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff914c',
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#ff914c",
                 },
               }}
             />
@@ -105,17 +115,17 @@ const Signup: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-[342px]"
               InputLabelProps={{
-                style: { color: '#094546' },
+                style: { color: "#094546" },
               }}
               InputProps={{
                 style: {
-                  borderRadius: '10px',
-                  padding: '0 15px',
+                  borderRadius: "10px",
+                  padding: "0 15px",
                 },
               }}
               sx={{
-                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff914c',
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#ff914c",
                 },
               }}
             />
@@ -127,21 +137,26 @@ const Signup: React.FC = () => {
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={loading}
-              sx={{ 
-                backgroundColor: loading ? '#e58e3c' : '#ff914c', 
-                '&:hover': { backgroundColor: '#e58e3c' } 
+              sx={{
+                backgroundColor: loading ? "#e58e3c" : "#ff914c",
+                "&:hover": { backgroundColor: "#e58e3c" },
               }}
             >
               {loading ? "Signing Up..." : "Sign Up"}
             </Button>
-            {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+            {error && (
+              <p className="text-red-600 text-sm text-center">{error}</p>
+            )}
           </form>
 
           <div className="mt-4 text-center">
             <span className="text-gray-600 text-[17px] font-normal">
               Already have an account?{" "}
             </span>
-            <Link href="/login" className="text-teal-600 underline font-semibold">
+            <Link
+              href="/login"
+              className="text-teal-600 underline font-semibold"
+            >
               Log In
             </Link>
           </div>

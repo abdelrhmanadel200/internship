@@ -3,13 +3,12 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "@/styles/globals.css";
-import {MenuIcon} from 'lucide-react';
-import {X} from 'lucide-react';
-import {MessageCircle} from 'lucide-react';
-import {Bell} from 'lucide-react';
-import {UserCircle} from 'lucide-react';
+import { MenuIcon } from "lucide-react";
+import { X } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { Bell } from "lucide-react";
+import { UserCircle } from "lucide-react";
 import footerLogo from "@/public/gammalTech-logos/footer-logo.png";
-
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,8 +41,8 @@ const NavBar = () => {
   };
 
   return (
-<div className={`py-5 bg-primary w-full`}>
-      <nav className="relative flex items-center justify-between h-16 container mx-auto px-4" >
+    <div className={`py-5 bg-primary w-full`}>
+      <nav className="relative flex items-center justify-between h-16 container mx-auto px-4">
         <Link href="/" className="flex items-center">
           <Image
             src={footerLogo}
@@ -53,60 +52,74 @@ const NavBar = () => {
           />
         </Link>
 
-
         <div className="hidden lg:flex space-x-10 items-center">
           {navItems.map(({ name, path }) => (
-            <Link key={name} href={path} className=" text-white hover:text-[#005555] text-[20px] font-normal">
+            <Link
+              key={name}
+              href={path}
+              className=" text-white hover:text-[#005555] text-[20px] font-normal"
+            >
               {name}
             </Link>
           ))}
         </div>
 
-
         <div className="flex lg:hidden items-center mr-4">
-          <button onClick={toggleMenu} className="text-[#007676] focus:outline-none">
-            {isOpen ? <X size={32} color="white" /> : <MenuIcon size={32} color="white" />}
-            
-            
+          <button
+            onClick={toggleMenu}
+            className="text-[#007676] focus:outline-none"
+          >
+            {isOpen ? (
+              <X size={32} color="white" />
+            ) : (
+              <MenuIcon size={32} color="white" />
+            )}
           </button>
         </div>
 
+        <div className="hidden lg:flex items-center space-x-4">
+          <Link href="/messages">
+            <MessageCircle size={32} color="white" />
+          </Link>
+          <Link href="/notifications">
+            <Bell size={32} color="white" />
+          </Link>
+          <Link href="/profile">
+            <UserCircle size={32} color="white" />
+          </Link>
+        </div>
+      </nav>
 
-
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/messages">
-              <MessageCircle size={32} color="white" />
-            </Link>
-            <Link href="/notifications">
-              <Bell size={32} color="white" />
-            </Link>
-            <Link href="/profile">
-              <UserCircle size={32} color="white" />
-            </Link>
+      {isOpen && (
+        <div
+          ref={menuRef}
+          className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-20 transition-transform transform origin-top-right scale-100 mx-4"
+        >
+          <div className="flex flex-col">
+            {[
+              "Home",
+              "Pricing",
+              "Contests",
+              "AI Challenge",
+              "Rank",
+              "Profile",
+              "Notifications",
+              "Messages",
+              "About Us",
+            ].map((item) => (
+              <Link
+                key={item}
+                href="/"
+                className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg"
+                onClick={() => setIsOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
           </div>
-        </nav>
-
-
-        {isOpen && (
-          <div
-            ref={menuRef}
-            className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-20 transition-transform transform origin-top-right scale-100 mx-4"
-          >
-            <div className="flex flex-col">
-              {["Home", "Pricing", "Contests", "AI Challenge", "Rank", "Profile", "Notifications", "Messages", "About Us"].map((item) => (
-                <Link
-                  key={item}
-                  href="/"
-                  className="text-[#007676] text-lg font-semibold hover:bg-[#e0f7fa] transition duration-200 p-3 rounded-lg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
+    </div>
   );
 };
 

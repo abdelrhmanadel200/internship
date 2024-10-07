@@ -4,8 +4,8 @@ import React from "react";
 import { Poppins } from "next/font/google";
 import axios from "axios";
 import Link from "next/link";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -56,7 +56,10 @@ const Login: React.FC = () => {
             LOGIN
           </h1>
 
-          <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col items-center space-y-4"
+          >
             <TextField
               label="Email"
               variant="outlined"
@@ -65,18 +68,19 @@ const Login: React.FC = () => {
               onChange={handleChange}
               className="w-[342px]"
               InputLabelProps={{
-                style: { color: '#094546' },
+                style: { color: "#094546" },
               }}
               InputProps={{
                 style: {
-                  borderRadius: '10px',
-                  padding: '0 15px',
+                  borderRadius: "10px",
+                  padding: "0 15px",
                 },
               }}
               sx={{
-                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff914c',
-                },
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#ff914c",
+                  },
               }}
             />
             <TextField
@@ -88,18 +92,19 @@ const Login: React.FC = () => {
               onChange={handleChange}
               className="w-[342px]"
               InputLabelProps={{
-                style: { color: '#094546' },
+                style: { color: "#094546" },
               }}
               InputProps={{
                 style: {
-                  borderRadius: '10px',
-                  padding: '0 15px',
+                  borderRadius: "10px",
+                  padding: "0 15px",
                 },
               }}
               sx={{
-                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff914c',
-                },
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#ff914c",
+                  },
               }}
             />
             <Button
@@ -110,25 +115,36 @@ const Login: React.FC = () => {
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={loading}
-              sx={{ backgroundColor: '#ff914c', '&:hover': { backgroundColor: '#e58e3c' } }}
+              sx={{
+                backgroundColor: "#ff914c",
+                "&:hover": { backgroundColor: "#e58e3c" },
+              }}
             >
               {loading ? "Logging In..." : "Log In"}
             </Button>
 
             <div className="flex justify-center mt-4">
-              <p className="text-sm text-teal-600 cursor-pointer" onClick={handleResetPassword}>
+              <p
+                className="text-sm text-teal-600 cursor-pointer"
+                onClick={handleResetPassword}
+              >
                 Forgot Your Password?
               </p>
             </div>
 
-            {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+            {error && (
+              <p className="text-red-600 text-sm text-center">{error}</p>
+            )}
           </form>
 
           <div className="mt-4 text-center">
             <span className="text-gray-600 text-[17px] font-normal">
               Dont have an account?{" "}
             </span>
-            <Link href="/views/auth/signup" className="text-teal-600 underline font-semibold">
+            <Link
+              href="/views/auth/signup"
+              className="text-teal-600 underline font-semibold"
+            >
               Sign Up
             </Link>
           </div>
