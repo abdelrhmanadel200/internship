@@ -76,7 +76,7 @@ const NavBarHome = () => {
 
         <div className="hidden lg:flex items-center mr-4">
           <Link
-            href="/views/auth/signup"
+            href="/signup"
             className="bg-[#007676] text-white rounded-full w-[156px] h-[50px] flex items-center justify-center text-base font-bold transition-all duration-300 ease-in-out hover:bg-[#005555] hover:shadow-lg"
           >
             GET STARTED
